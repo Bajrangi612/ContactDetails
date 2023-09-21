@@ -19,6 +19,9 @@ export class AppComponent {
       'email': this.email,
       'address':this.address
     });
+    this.name= null;
+    this.email = null;
+    this.address = null;
     console.log(this.userData);
     
   }
