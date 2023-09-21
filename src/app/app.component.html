@@ -1,3 +1,52 @@
-<h1>My Project has been started. kjkhdahkh </h1>
+<div class="container">
+    <h1>Contact Details</h1>
+    <div class="form-container">
+        <table>
+            <tr>
+                <th><label>Enter Your Name</label></th>
+                <td><input type="text" placeholder="Enter Your Name"  [(ngModel)]="name" required></td>
+            </tr>
+            <tr>
+                <th><label>Enter Your Email</label></th>
+                <td><input type="email" placeholder="Enter Your Email" [(ngModel)]="email" required></td>
+            </tr>
+            <tr>
+                <th><label>Enter Your Address</label></th>
+                <td><textarea cols="30" rows="10" placeholder="Enter Your Address" [(ngModel)]="address" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button (click)="saveData()" >Save Data</button></td>
+            </tr>
+        </table>
+    </div>
 
-<router-outlet></router-outlet>
+    <h1>Preview</h1>
+    <div class="preview-container" *ngIf=" userData.length > 0 else noData">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th> Action </th>
+
+                </tr>
+            </thead>
+            <tr *ngFor="let user of userData; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{ user.name }}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.address}}</td>
+                <td><button (click)="deleteData(i)"> Delete </button></td>
+            </tr>
+
+        </table>
+    </div>
+    <ng-template #noData>
+        <h4>No Data Present</h4>
+    </ng-template>
+
+</div>

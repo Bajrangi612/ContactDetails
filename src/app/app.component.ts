@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'contactdetails';
+  title = 'AngularDirectivesTask';
+
+  name:String;
+  email:String;
+  address:String
+  userData:Array<any> =[];
+
+  saveData(){
+    this.userData.push({
+      'name':this.name,
+      'email': this.email,
+      'address':this.address
+    });
+    console.log(this.userData);
+    
+  }
+  deleteData(i){
+    this.userData.splice(i,1);
+  }
 }
